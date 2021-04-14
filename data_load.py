@@ -18,7 +18,8 @@ def load_data(ticker):
 
 def plot_raw_data(data):
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=data["Date"], y=data["Open"], name="stock open"))
-    fig.add_trace(go.Scatter(x=data["Date"], y=data["Close"], name="stock close"))
+    fig.add_trace(go.Candlestick(x=data["Date"], close=data["Open"], open=data["Open"],
+                                 low=data["Low"], high=data["High"]))
+    # fig.add_trace(go.Candlestick(x=data["Date"], close=data["Close"], name="stock close"))
     fig.layout.update(title_text="Time Series Data", xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)

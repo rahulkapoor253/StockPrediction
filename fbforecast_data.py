@@ -20,7 +20,7 @@ def forecast_data(data, period):
     # st.write(forecast.tail())
 
     fig = plot_plotly(m, forecast)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
     st.subheader("Forecast Components")
     fig2 = m.plot_components(forecast)
